@@ -1,0 +1,224 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-blue: #104568;
+}
+
+@font-face {
+  font-family: 'Inter Regular';
+  src: url('Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter Bold';
+  src: url('Inter-Bold.ttf');
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter Regular';
+  color: #042033;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter Bold';
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0 0 20px;
+  color: var(--dark-blue);
+}
+
+p {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+}
+
+.container {
+  max-width: 1114px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ------------- Header -------------- */
+
+header, main {
+  display: block;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  height: 72px;
+  padding: 9px 17px;
+  align-items: center;
+}
+
+.header__logo span {
+  font-size: 28px;
+  font-family: 'Inter Bold';
+  color: black;
+}
+
+.toggle-nav {
+  position: relative;
+  display: block;
+  color: white;
+  width: 54px;
+  height: 54px;
+  background: black;
+  border-radius: 8px;
+}
+
+.toggle-nav .nav-icon::before {
+  top: -6px;
+  transition-property: top,transform;
+}
+
+.toggle-nav .nav-icon::after {
+  bottom: -6px;
+  transition-property: bottom,transform;
+}
+
+.toggle-nav .nav-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 21px;
+  height: 2px;
+  background: white;
+}
+
+.toggle-nav .nav-icon::before,
+.toggle-nav .nav-icon::after {
+  position: absolute;
+    content: "";
+    left: 0;
+    display: block;
+    width: 21px;
+    height: 2px;
+    background: white;
+    transition-duration: .3s,.3s;
+    transition-delay: .3s,0s;
+}
+
+/* ------------- Drawer Menu -------------- */
+.slideOut {
+  transform: translate(110%);
+  transition: all .3s ease-in;
+}
+
+.drawer-menu {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 340px;
+  min-width: 330px;
+  width: 80%;
+  background-color: #fff;
+  position: fixed;
+  transition: all .3s ease-in;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  height: 100vh;
+}
+
+.drawer-menu svg {
+  cursor: pointer;
+}
+
+.drawer-menu .drawer-menu__item {
+  color: var(--dark-blue);
+  text-align: right;
+  font-family: 'Inter Bold';
+  font-size: 28px;
+  padding: 10px 0;
+}
+
+.offCanvans__overlay {
+  background-color: #010101b3;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+/* ------------- Hero Section -------------- */
+
+.hero {
+  background: #f1f4f6;
+  padding: 24px 0;
+}
+
+.hero .container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero .container >div {
+  width: 50%;
+}
+
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.hero__left--container {
+  max-width: 413px;
+}
+
+.hero__image img {
+  width: 100%;
+}
+
+
+/* -------------- Buttons --------------- */
+
+.btn--primary {
+  padding: 15px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: inline-block;
+  font-family: 'Inter Bold';
+}
+
+.btn--gradient {
+  background: linear-gradient(#686868, black);
+}
+
+.btn--gradient:hover {
+  background: linear-gradient(black, #686868);
+}
+
+/* ------------- Responsive ------------- */
+@media screen and (max-width: 768px) {
+  .hero .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero .container >div {
+    width: 100%;
+  }
+}
